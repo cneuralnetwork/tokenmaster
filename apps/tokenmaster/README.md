@@ -1,3 +1,5 @@
+![TokenMaster: ccusage, but beautiful.](https://raw.githubusercontent.com/cneuralnetwork/tokenmaster/tokenmaster-dashboard/apps/tokenmaster/assets/tokenmaster-banner.png)
+
 # TokenMaster
 
 A local-first analytics dashboard built on the actual [ccusage](https://github.com/ccusage/ccusage) engine. One process discovers your existing coding-agent logs, serves the bundled dashboard on localhost, and opens your browser. No account, API keys, database, or frontend setup.
