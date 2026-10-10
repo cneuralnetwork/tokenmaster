@@ -572,7 +572,7 @@ export function SettingsPage({
             </p>
           </div>
           <a
-            href="https://github.com/cneuralnetwork/tokenmaster"
+            href="https://github.com/cneuralnetwork/tokenmaster/tree/tokenmaster-dashboard"
             target="_blank"
             rel="noreferrer"
           >

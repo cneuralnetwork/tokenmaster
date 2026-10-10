@@ -10,7 +10,7 @@
     "url": "git+https://github.com/cneuralnetwork/tokenmaster.git",
     "directory": "apps/tokenmaster"
   },
-  "homepage": "https://github.com/cneuralnetwork/tokenmaster#readme",
+  "homepage": "https://github.com/cneuralnetwork/tokenmaster/tree/tokenmaster-dashboard#readme",
   "bugs": {
     "url": "https://github.com/cneuralnetwork/tokenmaster/issues"
   },
