@@ -4,9 +4,9 @@
 
 A local-first analytics dashboard built on the actual [ccusage](https://github.com/ccusage/ccusage) engine. One process discovers your existing coding-agent logs, serves the bundled dashboard on localhost, and opens your browser. No account, API keys, database, or frontend setup.
 
-**Release status:** prepared for npm publication, not yet published. The intended name is `@cneuralnetwork/tokenmaster`; confirm ownership of that npm scope before publishing. The unscoped `tokenmaster` name is already occupied.
+## Get started
 
-After publication:
+Run one command:
 
 ```bash
 npx @cneuralnetwork/tokenmaster
@@ -14,7 +14,7 @@ npx @cneuralnetwork/tokenmaster
 
 Requires Node.js 22 or newer and npm. Supported native platforms: macOS, Linux (glibc), and Windows on x64 and arm64. npm installs the matching official ccusage prebuilt engine. Users do not need Rust or a compiler. The first npm download needs internet; the dashboard itself uses bundled offline pricing and local assets.
 
-To run the release tarball before publication:
+To run a locally built release tarball:
 
 ```bash
 npx --yes --package ./cneuralnetwork-tokenmaster-0.1.0.tgz tokenmaster
@@ -23,7 +23,8 @@ npx --yes --package ./cneuralnetwork-tokenmaster-0.1.0.tgz tokenmaster
 ## Commands
 
 ```bash
-# Following a global install, or via npx @cneuralnetwork/tokenmaster <arguments>:
+# Install globally with npm install -g @cneuralnetwork/tokenmaster,
+# or run any command with npx @cneuralnetwork/tokenmaster <arguments>:
 tokenmaster
 tokenmaster --port 3000
 tokenmaster --no-open
@@ -92,18 +93,18 @@ cargo test --manifest-path rust/Cargo.toml --workspace
 
 The engine executable is resolved with the **unchanged upstream npm launcher**, copied at build time to `dist/upstream/cli.js`. Keeping it a separate module preserves its original main-module guard. There is no substitute parser or pricing implementation. React, TypeScript, Tailwind, and Recharts compile into `dist/public`; the Node server is bundled into `dist/cli.js`.
 
-## Publish preparation
+## Release maintenance
 
 ```bash
 npm run check --workspaces=false
 npm run test:upstream --workspaces=false
 npm run test:package --workspaces=false
 npm pack --workspaces=false
-# Only after verifying npm scope ownership and deciding to release:
+# Maintainers: use the cneuralnetwork npm account and an unpublished version.
 npm publish --access public --workspaces=false
 ```
 
-Publishing is a separate release action. No automated publish credentials or release execution are configured for TokenMaster. The distribution includes the executable, production frontend, upstream launcher, MIT license, font licenses, attribution, and third-party notices. Native engine packages are exact optional dependencies for the six supported platforms. Do not install with `--omit=optional`.
+Releases are published manually from the cneuralnetwork npm account. No automated publish credentials are stored in the repository. The distribution includes the executable, production frontend, upstream launcher, MIT license, font licenses, attribution, and third-party notices. Native engine packages are exact optional dependencies for the six supported platforms. Do not install with `--omit=optional`.
 
 See `docs/VERIFICATION.md` and `docs/DESIGN_AUDIT.md` for verification and visual review notes. Upstream documentation is preserved at repository root and [ccusage.com](https://ccusage.com).
 

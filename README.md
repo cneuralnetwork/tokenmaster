@@ -25,13 +25,15 @@ It discovers existing logs, starts a small local server, and opens your browser.
 
 ## Get started
 
-**npm publication is pending.** The intended package is `@cneuralnetwork/tokenmaster`, because the unscoped `tokenmaster` name is occupied. Once published, the experience will be:
+Run one command:
 
 ```bash
 npx @cneuralnetwork/tokenmaster
 ```
 
-Until then, run the application from this repository:
+The package is published as [`@cneuralnetwork/tokenmaster`](https://www.npmjs.com/package/@cneuralnetwork/tokenmaster). The unscoped `tokenmaster` name belongs to another package.
+
+To build from source instead:
 
 ```bash
 git clone --branch tokenmaster-dashboard https://github.com/cneuralnetwork/tokenmaster.git

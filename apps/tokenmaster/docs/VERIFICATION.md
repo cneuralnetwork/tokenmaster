@@ -12,6 +12,12 @@ Verified locally on Linux x64, Node 22.21.1, against ccusage 20.0.28.
 - `npm run test:package` passed using a freshly created home and npm cache. It verifies the packed frontend/launcher, actual npx execution, version, no-argument browser opener, empty first run, automatic log discovery, daily/weekly/monthly/session/blocks, local HTTP responses, and process shutdown. No repository node_modules are used by the installed package.
 - `.github/workflows/tokenmaster.yml` defines the same npm build/test/package flow on macOS, Linux, and Windows with Node 22 and 24. All six jobs passed. Current runs are available in the [TokenMaster workflow](https://github.com/cneuralnetwork/tokenmaster/actions/workflows/tokenmaster.yml); the repository was recreated under `cneuralnetwork`, replacing the old run history. This includes native package installation, real npx execution, API parity, and lifecycle checks on each operating system.
 
+## Published npm release
+
+`@cneuralnetwork/tokenmaster@0.1.0` was published publicly from the `cneuralnetwork` npm account on 2026-10-10. The registry latest tag resolves to `0.1.0`, with tarball SHA-1 `6ac04e3be8b71fbc9bf9969f8d56d93a37714bd7`, matching the locally verified artifact.
+
+The package smoke checks also passed against the actual public registry package in a fresh home and npm cache: version, bundled dashboard, empty startup, automatic log discovery, daily/weekly/monthly/session/blocks, browser-opener invocation, and shutdown.
+
 ## Browser review
 
 The bundled production frontend was opened in the Codex in-app browser with real local Claude and Codex histories. No generated usage is shipped in the dashboard.
@@ -35,4 +41,4 @@ Export buttons were activated. CSV serialization and raw precision are tested. T
 
 ## Limits
 
-No npm publication has occurred. npm scope ownership and final release authorization are still required. Project attribution is limited to fields the current upstream adapters expose. Windows GUI browser launching cannot be exercised on this Linux host; command construction is tested and Windows server/package tests are included in CI. The dashboard intentionally estimates API-equivalent usage, not paid subscription fees.
+Project attribution is limited to fields the current upstream adapters expose. Windows GUI browser launching cannot be exercised on this Linux host; command construction is tested and Windows server/package tests are included in CI. The dashboard intentionally estimates API-equivalent usage, not paid subscription fees.
