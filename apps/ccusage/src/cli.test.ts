@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
 import { EventEmitter } from 'node:events';
+import { resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { describe, it, mock } from 'node:test';
 import {
 	createNativeSpawner,
@@ -113,13 +115,12 @@ void describe(resolveCliRuntime.name, () => {
 	});
 
 	void it('treats package bin symlinks as the main module entry point', () => {
+		const entryPath = resolve('project/node_modules/.bin/ccusage');
+		const modulePath = resolve('project/node_modules/ccusage/src/cli.js');
 		const actual = isMainModule({
-			argvEntry: '/project/node_modules/.bin/ccusage',
-			moduleUrl: 'file:///project/node_modules/ccusage/src/cli.js',
-			realpathPath: (path) =>
-				path === '/project/node_modules/.bin/ccusage'
-					? '/project/node_modules/ccusage/src/cli.js'
-					: path,
+			argvEntry: entryPath,
+			moduleUrl: pathToFileURL(modulePath).href,
+			realpathPath: (path) => path === entryPath ? modulePath : path,
 		});
 
 		assert.equal(actual, true);

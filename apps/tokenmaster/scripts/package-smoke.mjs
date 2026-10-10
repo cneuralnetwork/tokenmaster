@@ -79,7 +79,7 @@ let output = "";
 child.stdout.on("data", (b) => (output += b));
 child.stderr.on("data", (b) => (output += b));
 async function stop() {
-  if (child.exitCode !== null) return;
+  if (child.exitCode !== null || child.signalCode !== null) return;
   const closed = once(child, "exit");
   if (process.platform === "win32")
     await exec("taskkill", ["/PID", String(child.pid), "/T", "/F"]);
@@ -89,7 +89,7 @@ async function stop() {
 try {
   const deadline = Date.now() + 30000;
   while (!output.includes("tokenmaster ready") && Date.now() < deadline) {
-    if (child.exitCode !== null) throw new Error(output);
+    if (child.exitCode !== null || child.signalCode !== null) throw new Error(output);
     await new Promise((r) => setTimeout(r, 100));
   }
   const url = output.match(/http:\/\/127\.0\.0\.1:\d+/)?.[0];

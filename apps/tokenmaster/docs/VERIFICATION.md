@@ -7,7 +7,7 @@ Verified locally on Linux x64, Node 22.21.1, against ccusage 20.0.28.
 - TypeScript strict typecheck and production Vite/esbuild build pass.
 - 15 TokenMaster tests pass: multi-agent API equality, duplicate/malformed Claude rows, exact known token/cost values, upstream block/project parity, appended-log refresh, empty histories, port conflicts, loopback binding, shutdown, invalid queries, cross-origin protection, CSV escaping, date boundaries, cached-input accounting, model drill-down aggregation, caching, and platform opener construction.
 - Four actual adapters are exercised together: Claude, Codex, OpenCode, and Copilot. Copilot uses the existing upstream fixtures.
-- 12 original upstream JavaScript launcher tests pass without modification.
+- 12 original upstream JavaScript launcher tests pass. A POSIX-only file URL in one test fixture was made platform-native so the same test can run on Windows; launcher runtime code is unchanged.
 - Original Rust workspace test command passed locally using installed Rust 1.99.0. The pinned Nix environment and Rust 1.97.1 were unavailable; no engine changes were made. Command: `cargo +1.99.0 test --manifest-path rust/Cargo.toml --workspace`.
 - `npm run test:package` passed using a freshly created home and npm cache. It verifies the packed frontend/launcher, actual npx execution, version, no-argument browser opener, empty first run, automatic log discovery, daily/weekly/monthly/session/blocks, local HTTP responses, and process shutdown. No repository node_modules are used by the installed package.
 - `.github/workflows/tokenmaster.yml` defines the same npm build/test/package flow on macOS, Linux, and Windows with Node 22 and 24. Execution status is recorded separately after CI runs.
