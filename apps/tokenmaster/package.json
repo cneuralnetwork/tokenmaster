@@ -1,0 +1,70 @@
+{
+  "name": "@cneuralnetwork/tokenmaster",
+  "version": "0.1.0",
+  "description": "Local-first AI coding usage dashboard, powered by the ccusage engine",
+  "type": "module",
+  "license": "MIT",
+  "author": "TokenMaster contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cneuralnetwork/tokenmaster.git",
+    "directory": "apps/tokenmaster"
+  },
+  "homepage": "https://github.com/cneuralnetwork/tokenmaster#readme",
+  "bugs": {
+    "url": "https://github.com/cneuralnetwork/tokenmaster/issues"
+  },
+  "bin": {
+    "tokenmaster": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "NOTICE.md",
+    "README.md",
+    "licenses"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "node dist/cli.js",
+    "test": "node --import tsx --test test/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "prepack": "npm run build",
+    "check": "npm run typecheck && npm test && npm run build",
+    "test:package": "node scripts/package-smoke.mjs",
+    "test:upstream": "node --import tsx --test ../ccusage/src/cli.test.ts",
+    "format": "prettier --write src test scripts vite.config.ts"
+  },
+  "devDependencies": {
+    "@fontsource/geist": "^5.2.0",
+    "@fontsource/geist-mono": "^5.2.0",
+    "@tailwindcss/vite": "^4.1.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "esbuild": "^0.25.0",
+    "prettier": "^3.9.10",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "recharts": "^3.0.0",
+    "tailwindcss": "^4.1.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.0.0"
+  },
+  "optionalDependencies": {
+    "@ccusage/ccusage-darwin-arm64": "20.0.28",
+    "@ccusage/ccusage-darwin-x64": "20.0.28",
+    "@ccusage/ccusage-linux-arm64": "20.0.28",
+    "@ccusage/ccusage-linux-x64": "20.0.28",
+    "@ccusage/ccusage-win32-arm64": "20.0.28",
+    "@ccusage/ccusage-win32-x64": "20.0.28"
+  }
+}
