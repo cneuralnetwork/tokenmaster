@@ -10,7 +10,7 @@ Verified locally on Linux x64, Node 22.21.1, against ccusage 20.0.28.
 - 12 original upstream JavaScript launcher tests pass. A POSIX-only file URL in one test fixture was made platform-native so the same test can run on Windows; launcher runtime code is unchanged.
 - Original Rust workspace test command passed locally using installed Rust 1.99.0. The pinned Nix environment and Rust 1.97.1 were unavailable; no engine changes were made. Command: `cargo +1.99.0 test --manifest-path rust/Cargo.toml --workspace`.
 - `npm run test:package` passed using a freshly created home and npm cache. It verifies the packed frontend/launcher, actual npx execution, version, no-argument browser opener, empty first run, automatic log discovery, daily/weekly/monthly/session/blocks, local HTTP responses, and process shutdown. No repository node_modules are used by the installed package.
-- `.github/workflows/tokenmaster.yml` defines the same npm build/test/package flow on macOS, Linux, and Windows with Node 22 and 24. All six jobs passed at commit `634d6acb`: https://github.com/cneuralnetwork/tokenmaster/actions/runs/38047653378. This includes native package installation, real npx execution, API parity, and lifecycle checks on each operating system.
+- `.github/workflows/tokenmaster.yml` defines the same npm build/test/package flow on macOS, Linux, and Windows with Node 22 and 24. All six jobs passed. Current runs are available in the [TokenMaster workflow](https://github.com/cneuralnetwork/tokenmaster/actions/workflows/tokenmaster.yml); the repository was recreated under `cneuralnetwork`, replacing the old run history. This includes native package installation, real npx execution, API parity, and lifecycle checks on each operating system.
 
 ## Browser review
 

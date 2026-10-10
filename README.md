@@ -132,7 +132,7 @@ Project reporting covers Claude project directories and project paths exposed by
 
 ## Tested as a package
 
-The [cross-platform verification run](https://github.com/cneuralnetwork/tokenmaster/actions/runs/38047653378) passed all six combinations of **macOS, Linux, and Windows × Node.js 22 and 24**.
+The [cross-platform verification workflow](https://github.com/cneuralnetwork/tokenmaster/actions/workflows/tokenmaster.yml) passed all six combinations of **macOS, Linux, and Windows × Node.js 22 and 24**.
 
 The checks cover a real npx installation in an isolated home and npm cache, production assets, automatic log discovery, empty histories, CLI reports, API parity, port conflicts, and shutdown. Browser-opener invocation is exercised on macOS/Linux; Windows opener construction is unit-tested.
 
